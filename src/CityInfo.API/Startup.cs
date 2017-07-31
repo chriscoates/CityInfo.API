@@ -33,11 +33,12 @@ namespace CityInfo.API
                 app.UseExceptionHandler();
             }
 
+            app.UseMvc();
             
-            app.Run((Context) =>
-                {
-                    throw new Exception("Example exception");
-                });
+            //app.Run((Context) =>
+            //    {
+            //        throw new Exception("Example exception");
+            //    });
 
             //app.Run(async (context) =>
             //{
