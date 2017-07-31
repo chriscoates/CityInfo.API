@@ -24,4 +24,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
