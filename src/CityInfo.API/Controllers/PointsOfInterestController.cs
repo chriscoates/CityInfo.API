@@ -21,7 +21,7 @@ namespace CityInfo.API.Controllers
             return Ok(city.PointsOfInterest);
         }
 
-        [HttpGet("{cityId}/pointsofinterest/{id)")]
+        [HttpGet("{cityId}/pointsofinterest/{id}")]
 
         public IActionResult GetPointOfInterest(int cityId, int id)
         {
