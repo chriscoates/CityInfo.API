@@ -79,7 +79,7 @@ namespace CityInfo.API.Controllers
             city.PointsOfInterest.Add(finalPointOfInterest);
 
             return CreatedAtRoute("GetPointOfInterest", new
-            { cityId = cityId, id = finalPointOfInterest.Id}, finalPointOfInterest);
+                {cityId = cityId, id = finalPointOfInterest.Id}, finalPointOfInterest);
         }
 
         [HttpPut("{cityId}/pointsofinterest/{Id}")]
@@ -148,6 +148,18 @@ namespace CityInfo.API.Controllers
                 };
 
             patchDoc.ApplyTo(pointOfInterestToPatch, ModelState);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (pointOfInterestFromStore.Description == pointOfInterestFromStore.Name)
+            {
+                ModelState.AddModelError("Description", "The provided description should be different from the name.");
+            }
+
+            TryValidateModel(pointOfInterestToPatch);
 
             if (!ModelState.IsValid)
             {
