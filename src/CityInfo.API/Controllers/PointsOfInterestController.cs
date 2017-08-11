@@ -30,15 +30,15 @@ namespace CityInfo.API.Controllers
 
                 if (city == null)
                 {
-                    _logger.LogInformation($"City with id {cityId} was not found when accessing points of interest.");
+                    _logger.LogInformation(message: $"City with id {cityId} was not found when accessing points of interest.");
                     return NotFound();
                 }
                 return Ok(city.PointsOfInterest);
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"Exception for getting points of interest for cities with id {cityId}.", ex);
-                return StatusCode(500, "A problem happened while handling your request");
+                _logger.LogInformation(message: $"Exception for getting points of interest for cities with id {cityId}.", args: ex);
+                return StatusCode(500, value: "A problem happened while handling your request");
             }
         }
 
@@ -72,7 +72,7 @@ namespace CityInfo.API.Controllers
 
             if (pointOfInterest.Description == pointOfInterest.Name)
             {
-                ModelState.AddModelError("Description", "The provided description should be different form the name.");
+                ModelState.AddModelError(key: "Description", errorMessage: "The provided description should be different form the name.");
             }
 
             if (!ModelState.IsValid)
@@ -115,7 +115,7 @@ namespace CityInfo.API.Controllers
 
             if (pointOfInterest.Description == pointOfInterest.Name)
             {
-                ModelState.AddModelError("Description", "The provided description should be different form the name.");
+                ModelState.AddModelError(key: "Description", errorMessage: "The provided description should be different form the name.");
             }
 
             if (!ModelState.IsValid)
@@ -178,7 +178,7 @@ namespace CityInfo.API.Controllers
 
             if (pointOfInterestFromStore.Description == pointOfInterestFromStore.Name)
             {
-                ModelState.AddModelError("Description", "The provided description should be different from the name.");
+                ModelState.AddModelError(key: "Description", errorMessage: "The provided description should be different from the name.");
             }
 
             TryValidateModel(pointOfInterestToPatch);
