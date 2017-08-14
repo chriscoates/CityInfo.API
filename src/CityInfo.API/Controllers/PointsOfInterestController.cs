@@ -215,6 +215,9 @@ namespace CityInfo.API.Controllers
 
             city.PointsOfInterest.Remove(pointOfInterestFromStore);
 
+            _mailService.Send("Point of interest deleted",
+            $"Point of interest {pointOfInterestFromStore.Name} with id {pointOfInterestFromStore.Id} was deleted.");
+
             return NoContent();
         }
     }
