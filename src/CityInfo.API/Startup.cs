@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using NLog.Extensions.Logging;
+using CityInfo.API.Service;
 
 namespace CityInfo.API
 {
@@ -25,6 +26,7 @@ namespace CityInfo.API
             //        castedResolver.NamingStrategy = null;
             //    }
             //});
+            services.AddTransient<LocalMailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
