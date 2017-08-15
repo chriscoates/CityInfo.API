@@ -17,7 +17,7 @@ namespace CityInfo.API.Controllers
         public PointsOfInterestController(ILogger<PointsOfInterestController> logger, IMailService mailService)
         {
             _logger = logger;
-            _mailService = mailService ?? throw new ArgumentNullException(nameof(mailService));
+            _mailService = mailService;
         }
 
         [HttpGet("{cityId}/pointsofinterest")]
@@ -40,7 +40,7 @@ namespace CityInfo.API.Controllers
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"Exception for getting points of interest for cities with id {cityId}.", args: ex);
-                return StatusCode(500, value: "A problem happened while handling your request");
+                return StatusCode(statusCode: 500, value: "A problem happened while handling your request");
             }
         }
 
