@@ -17,7 +17,7 @@ namespace CityInfo.API.Controllers
         public PointsOfInterestController(ILogger<PointsOfInterestController> logger, IMailService mailService)
         {
             _logger = logger;
-            _mailService = mailService;
+            _mailService = mailService ?? throw new ArgumentNullException(nameof(mailService));
         }
 
         [HttpGet("{cityId}/pointsofinterest")]
@@ -31,7 +31,8 @@ namespace CityInfo.API.Controllers
 
                 if (city == null)
                 {
-                    _logger.LogInformation(message: $"City with id {cityId} was not found when accessing points of interest.");
+                    _logger.LogInformation(message: $"City with id {cityId} was not found when accessing points of interest.");                    
+
                     return NotFound();
                 }
                 return Ok(city.PointsOfInterest);
