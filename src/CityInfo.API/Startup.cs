@@ -50,8 +50,8 @@ namespace CityInfo.API
             services.AddTransient<IMailService, CloudMailService>();
             #endif
 
-            var connectionString = @"Server=(localdb)\ProjectsV13;Database=CityInfoDB;Trusted_Connection+True;";
-            services.AddDbContext<CityInfoContext>(o => o.UseSqlServer("connectionstring"));
+            var connectionString = @"Server=(localdb)\ProjectsV13;Database=CityInfoDB;Trusted_Connection=True;";
+            services.AddDbContext<CityInfoContext>(o => o.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
