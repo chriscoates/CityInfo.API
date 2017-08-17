@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using CityInfo.API.Entities;
+﻿using CityInfo.API.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
