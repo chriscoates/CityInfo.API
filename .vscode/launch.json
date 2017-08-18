@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/src/CityInfo.API/bin/Debug/netcoreapp1.0/CityInfo.API.dll",
+            "program": "${workspaceRoot}/CityInfo.API/bin/Debug/netcoreapp2.0/CityInfo.API.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/src/CityInfo.API",
+            "cwd": "${workspaceRoot}/CityInfo.API",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
