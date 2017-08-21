@@ -18,9 +18,10 @@ namespace CityInfo.API
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-            .SetBasePath(env.ContentRootPath)
-            .AddJsonFile("appSettings.json", optional:false, reloadOnChange:true)
-            .AddJsonFile($"appSettings.{env.EnvironmentName}.json", optional:true, reloadOnChange:true);
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appSettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appSettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables();
 
             Configuration = builder.Build();          
         }
