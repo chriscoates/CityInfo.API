@@ -25,7 +25,7 @@ namespace CityInfo.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Description")
+                    b.Property<string>("Description")
                         .HasMaxLength(50);
 
                     b.Property<string>("Name")
