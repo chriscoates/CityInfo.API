@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CityInfo.API.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CityInfo.API.Services
 {
@@ -19,9 +20,14 @@ namespace CityInfo.API.Services
             return _context.Cities.OrderBy(c => c.Name).ToList();
         }
 
-        public City GetCity(int cityId)
+        public City GetCity(int cityId, bool includePointsOrInterest)
         {
-            throw new NotImplementedException();
+            if (includePointsOrInterest)
+            {
+                return _context.Cities.Include(c => c.PointsOfInterest).
+                    Where(c => c.Id == cityId).FirstOrDefault();
+            }
+            return _context.Cities.Where(c => c.Id == cityId).FirstOrDefault();
         }
 
         public PointOfInterest GetPointOFInterestForCity(int cityId, int pointOfInterestId)
