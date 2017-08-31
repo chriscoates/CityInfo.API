@@ -73,6 +73,16 @@ namespace CityInfo.API.Controllers
                 return Ok(cityResult);
             }
 
+            var cityWithoutPointsOfInterestResult =
+                new CityWithoutPointsOfInterestDto()
+                {
+                    Id = city.Id,
+                    Description = city.Description,
+                    Name = city.Name
+                };
+
+            return Ok(cityWithoutPointsOfInterestResult);
+
             //// find city
             //var cityToReturn = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == id);
             //if (cityToReturn == null)
