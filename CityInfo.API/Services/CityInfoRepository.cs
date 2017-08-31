@@ -38,7 +38,8 @@ namespace CityInfo.API.Services
 
         public IEnumerable<PointOfInterest> GetPointsOfInterestForCity(int cityId)
         {
-            throw new NotImplementedException();
+            return _context.PointsOfInterest
+                .Where(p => p.CityId == cityId).ToList();
         }
     }
 }
