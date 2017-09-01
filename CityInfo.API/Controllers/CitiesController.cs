@@ -25,18 +25,8 @@ namespace CityInfo.API.Controllers
 
             var cityEntities = _cityInfoRepository.GetCities();
 
-            var results = new List<CityWithoutPointsOfInterestDto>();
-
-            foreach (var cityEntity in cityEntities)
-            {
-                results.Add(new CityWithoutPointsOfInterestDto
-                {
-                    Id = cityEntity.Id,
-                    Description = cityEntity.Description,
-                    Name = cityEntity.Name
-                });
-            }
-
+            var results = AutoMapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities);
+            
             return Ok(results);
         }
 
