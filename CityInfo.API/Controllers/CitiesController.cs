@@ -45,10 +45,12 @@ namespace CityInfo.API.Controllers
         {
             var city = _cityInfoRepository.GetCity(id, includePointsOfInterest);
 
-            if (city == null)
-            {
-                return NotFound();
-            }
+            //if (city == null)
+            //{
+            //    return NotFound();
+            //}
+
+            if (city == null) return NotFound();
 
             if (includePointsOfInterest)
             {
