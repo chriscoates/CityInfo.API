@@ -77,17 +77,13 @@ namespace CityInfo.API
 
             cityInfoContext.EnsureSeedDataForContext();
 
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Entities.City, Models.CityWithoutPointsOfInterestDto>();
+            });
+
             app.UseMvc();
             
-            //app.Run((Context) =>
-            //    {
-            //        throw new Exception("Example exception");
-            //    });
-
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
         }
     }
 }
