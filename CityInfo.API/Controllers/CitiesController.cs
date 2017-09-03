@@ -20,10 +20,6 @@ namespace CityInfo.API.Controllers
         [HttpGet()]
         public IActionResult GetCities()
         {
-            //var temp = new JsonResult(CitiesDataStore.Current.Cities);
-            //temp.StatusCode = 200;
-            //return temp;
-
             var cityEntities = _cityInfoRepository.GetCities();
             var results = Mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities);
             
