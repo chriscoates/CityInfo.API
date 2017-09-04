@@ -52,5 +52,10 @@ namespace CityInfo.API.Services
             return _context.PointsOfInterest
                 .Where(p => p.CityId == cityId).ToList();
         }
+
+        public bool Save()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
     }
 }
