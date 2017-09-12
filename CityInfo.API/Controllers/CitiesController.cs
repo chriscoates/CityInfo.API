@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using CityInfo.API.Services;
 using System.Collections.Generic;
-using CityInfo.API.Models;
 using AutoMapper;
+using CityInfo.DtoModels;
 
 namespace CityInfo.API.Controllers
 {

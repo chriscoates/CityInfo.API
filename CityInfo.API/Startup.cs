@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using NLog.Extensions.Logging;
 using CityInfo.API.Services;
+using CityInfo.DtoModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -79,12 +80,12 @@ namespace CityInfo.API
 
             AutoMapper.Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Entities.City, Models.CityWithoutPointsOfInterestDto>();
-                cfg.CreateMap<Entities.City, Models.CityDto>();
-                cfg.CreateMap<Entities.PointOfInterest, Models.PointOfInterestDto>();
-                cfg.CreateMap<Models.PointOfInterestForCreationDto, Entities.PointOfInterest>();
-                cfg.CreateMap<Models.PointOfInterestForUpdateDto, Entities.PointOfInterest>();
-                cfg.CreateMap<Entities.PointOfInterest, Models.PointOfInterestForUpdateDto>();
+                cfg.CreateMap<Entities.City, CityWithoutPointsOfInterestDto>();
+                cfg.CreateMap<Entities.City, CityDto>();
+                cfg.CreateMap<Entities.PointOfInterest, PointOfInterestDto>();
+                cfg.CreateMap<PointOfInterestForCreationDto, Entities.PointOfInterest>();
+                cfg.CreateMap<PointOfInterestForUpdateDto, Entities.PointOfInterest>();
+                cfg.CreateMap<Entities.PointOfInterest, PointOfInterestForUpdateDto>();
             });
 
             app.UseMvc();

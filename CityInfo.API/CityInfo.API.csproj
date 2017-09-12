@@ -15,4 +15,8 @@
     <PackageReference Include="OpenCover" Version="4.6.519" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CityInfo.DtoModels\CityInfo.DtoModels.csproj" />
+  </ItemGroup>
+
 </Project>

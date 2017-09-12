@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CityInfo.API.Models
+namespace CityInfo.DtoModels
 {
     public class CityDto
     {

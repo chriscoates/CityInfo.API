@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CityInfo.API.Models
+namespace CityInfo.DtoModels
 {
-    public class PointOfInterestForCreationDto
+    public class PointOfInterestForUpdateDto
     {
         [Required(ErrorMessage = "You should provide a name value")]
         [MaxLength(50)]

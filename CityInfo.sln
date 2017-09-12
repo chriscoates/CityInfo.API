@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CityInfo.API", "CityInfo.API\CityInfo.API.csproj", "{6A2D7CF9-835F-4746-8DD9-ED2518103F60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityInfo.API.Tests", "CityInfo.API.Tests\CityInfo.API.Tests.csproj", "{EE1EB771-81C8-465F-A476-F2DFFDB74ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CityInfo.API.Tests", "CityInfo.API.Tests\CityInfo.API.Tests.csproj", "{EE1EB771-81C8-465F-A476-F2DFFDB74ABE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityInfo.DtoModels", "CityInfo.DtoModels\CityInfo.DtoModels.csproj", "{C160A519-DABE-48A2-9B53-4B8451AEBFC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EE1EB771-81C8-465F-A476-F2DFFDB74ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE1EB771-81C8-465F-A476-F2DFFDB74ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE1EB771-81C8-465F-A476-F2DFFDB74ABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C160A519-DABE-48A2-9B53-4B8451AEBFC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C160A519-DABE-48A2-9B53-4B8451AEBFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C160A519-DABE-48A2-9B53-4B8451AEBFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C160A519-DABE-48A2-9B53-4B8451AEBFC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
