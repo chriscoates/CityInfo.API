@@ -5,7 +5,7 @@
 * .NET Core Framework
 * .NET Standard
 
-##Patterns used...
+## Patterns used...
 * Dependency Injection
 * Repository Patter
 * SOLID Principles
