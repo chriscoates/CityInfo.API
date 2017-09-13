@@ -7,5 +7,5 @@
 
 ## Patterns used...
 * Dependency Injection
-* Repository Patter
+* Repository Pattern
 * SOLID Principles
