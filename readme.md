@@ -1,12 +1,11 @@
-Repository to show an API for cities and points of interest.
+# Repository to show an API for cities and points of interest.
 
-This solution uses the following...
+## This solution uses the following...
+* ASP.NET Core
+* .NET Core Framework
+* .NET Standard
 
-ASP.NET Core
-.NET Core Framework
-.NET Standard
-
-Patterns used...
-Dependency Injection
-Repository Patter
-SOLID Principles
+##Patterns used...
+* Dependency Injection
+* Repository Patter
+* SOLID Principles
