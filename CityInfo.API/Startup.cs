@@ -45,9 +45,9 @@ namespace CityInfo.API
             //});
 
             #if DEBUG
-            services.AddTransient<IMailService, LocalMailService>();
+            services.AddTransient<IMailService, SendGridMailService>();
             #else
-            services.AddTransient<IMailService, CloudMailService>();
+            services.AddTransient<IMailService, SendGridMailService>();
             #endif
 
             var connectionString = Configuration["connectionStrings:cityInfoDBConnectionString"];
