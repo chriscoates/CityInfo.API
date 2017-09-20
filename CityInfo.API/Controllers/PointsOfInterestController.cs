@@ -220,7 +220,7 @@ namespace CityInfo.API.Controllers
                 return StatusCode(500, "A problem happened while handling your request.");
             }
 
-            _mailService.Send("Point of interest deleted",
+            _mailService.SendAsync("Point of interest deleted",
             $"Point of interest {pointOfInterestEntity.Name} with id {pointOfInterestEntity.Id} was deleted.");
 
             return NoContent();
