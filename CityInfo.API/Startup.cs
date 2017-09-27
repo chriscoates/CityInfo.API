@@ -24,7 +24,7 @@ namespace CityInfo.API
                 .AddJsonFile($"appSettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables();
 
-            Configuration = builder.Build();          
+            Configuration = builder.Build();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -50,7 +50,7 @@ namespace CityInfo.API
             services.AddTransient<IMailService, SendGridMailService>();
             #endif
 
-            var connectionString = Configuration["connectionStrings:cityInfoDBConnectionString"];
+            var connectionString = Configuration["connectionStrings:DefaultConnection"];
             services.AddDbContext<CityInfoContext>(o => o.UseSqlServer(connectionString));
 
             services.AddScoped<ICityInfoRepository, CityInfoRepository>();
