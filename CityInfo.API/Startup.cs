@@ -14,7 +14,7 @@ namespace CityInfo.API
 {
     public class Startup
     {
-        public static IConfiguration Configuration;
+        public IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration)
         {
@@ -39,7 +39,7 @@ namespace CityInfo.API
             //});
 
             #if DEBUG
-            services.AddTransient<IMailService, SendGridMailService>();
+            services.AddTransient<IMailService, LocalMailService>();
             #else
             services.AddTransient<IMailService, SendGridMailService>();
             #endif
@@ -56,7 +56,7 @@ namespace CityInfo.API
         {
             loggerFactory.AddConsole();
 
-            loggerFactory.AddDebug(); 
+            loggerFactory.AddDebug();
 
             // loggerFactory.AddProvider(new NLog.Extensions.Logging.NLogLoggerProvider());
             loggerFactory.AddNLog();
@@ -70,6 +70,7 @@ namespace CityInfo.API
                 app.UseExceptionHandler();
             }
 
+            cityInfoContext.Database.Migrate();
             cityInfoContext.EnsureSeedDataForContext();
 
             AutoMapper.Mapper.Initialize(cfg =>
@@ -82,8 +83,12 @@ namespace CityInfo.API
                 cfg.CreateMap<Entities.PointOfInterest, PointOfInterestForUpdateDto>();
             });
 
-            app.UseMvc();
-            
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
