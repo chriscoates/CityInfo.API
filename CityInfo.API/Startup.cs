@@ -14,7 +14,7 @@ namespace CityInfo.API
 {
     public class Startup
     {
-        public static IConfiguration Configuration;
+        public IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration)
         {
@@ -56,7 +56,7 @@ namespace CityInfo.API
         {
             loggerFactory.AddConsole();
 
-            loggerFactory.AddDebug(); 
+            loggerFactory.AddDebug();
 
             // loggerFactory.AddProvider(new NLog.Extensions.Logging.NLogLoggerProvider());
             loggerFactory.AddNLog();
@@ -83,7 +83,7 @@ namespace CityInfo.API
             });
 
             app.UseMvc();
-            
+
         }
     }
 }

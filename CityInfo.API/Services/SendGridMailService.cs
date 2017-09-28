@@ -4,18 +4,27 @@ using Newtonsoft.Json;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace CityInfo.API.Services
 {
     public class SendGridMailService : IMailService
     {
-        private string _mailTo = Startup.Configuration["mailSettings:mailToAddress"];
-        private string _mailToName = Startup.Configuration["mailSettings:mailToAddress"];
-        private string _mailFrom = Startup.Configuration["mailSettings:mailFromName"];
-        private string _mailFromName = Startup.Configuration["mailSettings:mailFromName"];
+        private readonly string _mailTo;
+        private readonly string _mailToName;
+        private readonly string _mailFrom;
+        private readonly string _mailFromName;
 
-        public SendGridMailService()
+        private readonly string _apiKey;
+
+        public SendGridMailService(IConfiguration configuration)
         {
+            _mailTo = configuration["mailSettings:mailToAddress"];
+            _mailToName = configuration["mailSettings:mailToAddress"];
+            _mailFrom = configuration["mailSettings:mailFromName"];
+            _mailFromName = configuration["mailSettings:mailFromName"];
+
+            _apiKey = configuration["NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY"];
         }
 
         public Task SendAsync(string subject, string message)
@@ -30,8 +39,7 @@ namespace CityInfo.API.Services
 
         public async Task SendAsync(string subject, string message, string fromEmail, string fromName, string toEmail, string toName)
         {
-            var apiKey = Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
-            var client = new SendGridClient(apiKey);
+            var client = new SendGridClient(_apiKey);
             var from = new EmailAddress(fromEmail, fromName);
             var to = new EmailAddress(toEmail, toName);
 
