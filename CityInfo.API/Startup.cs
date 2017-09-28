@@ -39,7 +39,7 @@ namespace CityInfo.API
             //});
 
             #if DEBUG
-            services.AddTransient<IMailService, SendGridMailService>();
+            services.AddTransient<IMailService, LocalMailService>();
             #else
             services.AddTransient<IMailService, SendGridMailService>();
             #endif
