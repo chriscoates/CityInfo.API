@@ -70,6 +70,7 @@ namespace CityInfo.API
                 app.UseExceptionHandler();
             }
 
+            cityInfoContext.Database.Migrate();
             cityInfoContext.EnsureSeedDataForContext();
 
             AutoMapper.Mapper.Initialize(cfg =>
