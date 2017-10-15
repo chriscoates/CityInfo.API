@@ -28,15 +28,6 @@ namespace CityInfo.API
             services.AddMvc()
                 .AddMvcOptions(o => o.OutputFormatters.Add(
                     new XmlDataContractSerializerOutputFormatter()));
-            //.AddJsonOptions(o =>
-            //{
-            //    if (o.SerializerSettings.ContractResolver != null)
-            //    {
-            //        var castedResolver = o.SerializerSettings.ContractResolver
-            //            as DefaultContractResolver;
-            //        castedResolver.NamingStrategy = null;
-            //    }
-            //});
 
             #if DEBUG
             services.AddTransient<IMailService, LocalMailService>();
@@ -58,7 +49,6 @@ namespace CityInfo.API
 
             loggerFactory.AddDebug();
 
-            // loggerFactory.AddProvider(new NLog.Extensions.Logging.NLogLoggerProvider());
             loggerFactory.AddNLog();
 
             if (env.IsDevelopment())
