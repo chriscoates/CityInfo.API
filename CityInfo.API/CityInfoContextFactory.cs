@@ -11,16 +11,14 @@ namespace CityInfo.API
 {
     public class CityInfoContextFactory : IDesignTimeDbContextFactory<CityInfoContext>
     {
-        private readonly IConfiguration _configuration;
 
-        public CityInfoContextFactory(IConfiguration configuration)
+        public CityInfoContextFactory()
         {
-            _configuration = configuration;
         }
 
         public CityInfoContext CreateDbContext(string[] args)
         {
-            var connectionString = _configuration["connectionStrings:DefaultConnection"];
+            var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=CityInfoDB;Trusted_Connection=True;";
 
             var optionsBuilder = new DbContextOptionsBuilder<CityInfoContext>();
             optionsBuilder.UseSqlServer(connectionString);
